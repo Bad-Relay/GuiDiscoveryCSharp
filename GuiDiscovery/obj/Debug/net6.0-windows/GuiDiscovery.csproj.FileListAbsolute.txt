@@ -1,0 +1,17 @@
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\GuiDiscovery.exe
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\GuiDiscovery.deps.json
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\GuiDiscovery.runtimeconfig.json
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\GuiDiscovery.dll
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\GuiDiscovery.pdb
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\GuiDiscovery.csproj.AssemblyReference.cache
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\GuiDiscovery.Form1.resources
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\GuiDiscovery.csproj.GenerateResource.cache
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\GuiDiscovery.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\GuiDiscovery.AssemblyInfoInputs.cache
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\GuiDiscovery.AssemblyInfo.cs
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\GuiDiscovery.csproj.CoreCompileInputs.cache
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\GuiDiscovery.dll
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\refint\GuiDiscovery.dll
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\GuiDiscovery.pdb
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\GuiDiscovery.genruntimeconfig.cache
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\ref\GuiDiscovery.dll
