@@ -15,3 +15,13 @@ C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\r
 C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\GuiDiscovery.pdb
 C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\GuiDiscovery.genruntimeconfig.cache
 C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\ref\GuiDiscovery.dll
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\CsQuery.dll
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\MisterHex.WebCrawling.dll
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\Polly.dll
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\System.Reactive.dll
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\System.Runtime.Caching.dll
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\System.Runtime.InteropServices.WindowsRuntime.dll
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\bunce\source\repos\GuiDiscovery\GuiDiscovery\obj\Debug\net6.0-windows\GuiDiscovery.csproj.CopyComplete

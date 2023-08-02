@@ -1,11 +1,12 @@
 // Est 3 hours
-// Start 10:00 PM
-// End 11:18 PM
-// Started the base of the program where it can read a word list and make a request. 
-// The user can also add a custom word list with the word list button
-// For debugging right now if a web request is failed it will say what the error is 
-// The time was done faster because of examples of functions from learn.microsoft.com
-// User needs to add the portcol but that can be a drop down in the next update
+// Start 7:11 PM
+// End   8:28 PM
+// Added a web crawler button that will search the html of a link and put it in a list box. 
+// It will do the same process for each link that it finds. 
+// The list box also now has clickable links so that you can open a page the program finds. 
+// Was able to complete this part faster because I fond a libary for web crawling that speed up development. 
+// Opening a link has a new method in .net 7.0 so I had to learn that. 
+
 namespace GuiDiscovery
 {
     internal static class Program

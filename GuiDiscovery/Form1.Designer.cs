@@ -1,4 +1,6 @@
-﻿namespace GuiDiscovery
+﻿using System.Windows.Forms;
+
+namespace GuiDiscovery
 {
     partial class Form1
     {
@@ -33,11 +35,12 @@
             listBox_url = new ListBox();
             openFileDialog = new OpenFileDialog();
             button_wl = new Button();
+            button_crawl = new Button();
             SuspendLayout();
             // 
             // button_dir
             // 
-            button_dir.Location = new Point(34, 176);
+            button_dir.Location = new Point(22, 176);
             button_dir.Name = "button_dir";
             button_dir.Size = new Size(75, 23);
             button_dir.TabIndex = 0;
@@ -61,6 +64,7 @@
             listBox_url.Name = "listBox_url";
             listBox_url.Size = new Size(344, 274);
             listBox_url.TabIndex = 2;
+            listBox_url.MouseDoubleClick += listBox_url_DoubleClick;
             // 
             // openFileDialog
             // 
@@ -68,7 +72,7 @@
             // 
             // button_wl
             // 
-            button_wl.Location = new Point(150, 176);
+            button_wl.Location = new Point(184, 176);
             button_wl.Name = "button_wl";
             button_wl.Size = new Size(75, 23);
             button_wl.TabIndex = 3;
@@ -76,11 +80,22 @@
             button_wl.UseVisualStyleBackColor = true;
             button_wl.Click += button_wl_Click;
             // 
+            // button_crawl
+            // 
+            button_crawl.Location = new Point(103, 176);
+            button_crawl.Name = "button_crawl";
+            button_crawl.Size = new Size(75, 23);
+            button_crawl.TabIndex = 4;
+            button_crawl.Text = "Crawl";
+            button_crawl.UseVisualStyleBackColor = true;
+            button_crawl.Click += button_crawl_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button_crawl);
             Controls.Add(button_wl);
             Controls.Add(listBox_url);
             Controls.Add(textBox_url);
@@ -98,5 +113,6 @@
         private ListBox listBox_url;
         private OpenFileDialog openFileDialog;
         private Button button_wl;
+        private Button button_crawl;
     }
 }

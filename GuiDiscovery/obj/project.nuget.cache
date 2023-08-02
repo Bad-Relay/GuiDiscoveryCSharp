@@ -1,8 +1,26 @@
 {
   "version": 2,
-  "dgSpecHash": "6UVV/CLRBfeG5jb9KRAka3xbjIfAvXQaOu3rXOTyFWOhuytEBmlIohmXNuzxNqa6rnQ0LSCb49odJsA1iVcUDQ==",
+  "dgSpecHash": "/i0z2EisWfHTQTA22FZAXOX8kerxFMYJu4KAoyizVUnG83jjTPCCHfVZW2vpb2achsmK1XtCOylc1efETkEbYA==",
   "success": true,
   "projectFilePath": "C:\\Users\\bunce\\source\\repos\\GuiDiscovery\\GuiDiscovery\\GuiDiscovery.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\bunce\\.nuget\\packages\\csquery.core\\2.0.1\\csquery.core.2.0.1.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\microsoft.csharp\\4.4.1\\microsoft.csharp.4.4.1.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\misterhex.webcrawling\\2.0.3\\misterhex.webcrawling.2.0.3.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\polly\\7.1.0\\polly.7.1.0.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0\\system.configuration.configurationmanager.4.5.0.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\system.reactive\\4.1.5\\system.reactive.4.1.5.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\system.runtime.caching\\4.5.0\\system.runtime.caching.4.5.0.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\system.runtime.interopservices.windowsruntime\\4.3.0\\system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0\\system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\system.security.permissions\\4.5.0\\system.security.permissions.4.5.0.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512",
+    "C:\\Users\\bunce\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.2\\system.threading.tasks.extensions.4.5.2.nupkg.sha512"
+  ],
   "logs": []
 }
