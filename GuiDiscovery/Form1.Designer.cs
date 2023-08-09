@@ -36,6 +36,10 @@ namespace GuiDiscovery
             openFileDialog = new OpenFileDialog();
             button_wl = new Button();
             button_crawl = new Button();
+            comboBox_layers = new ComboBox();
+            button_export = new Button();
+            textBox_Name = new TextBox();
+            comboBox_file = new ComboBox();
             SuspendLayout();
             // 
             // button_dir
@@ -60,7 +64,7 @@ namespace GuiDiscovery
             // 
             listBox_url.FormattingEnabled = true;
             listBox_url.ItemHeight = 15;
-            listBox_url.Location = new Point(413, 107);
+            listBox_url.Location = new Point(426, 121);
             listBox_url.Name = "listBox_url";
             listBox_url.Size = new Size(344, 274);
             listBox_url.TabIndex = 2;
@@ -90,11 +94,50 @@ namespace GuiDiscovery
             button_crawl.UseVisualStyleBackColor = true;
             button_crawl.Click += button_crawl_Click;
             // 
+            // comboBox_layers
+            // 
+            comboBox_layers.FormattingEnabled = true;
+            comboBox_layers.Items.AddRange(new object[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
+            comboBox_layers.Location = new Point(274, 121);
+            comboBox_layers.Name = "comboBox_layers";
+            comboBox_layers.Size = new Size(121, 23);
+            comboBox_layers.TabIndex = 5;
+            // 
+            // button_export
+            // 
+            button_export.Location = new Point(320, 258);
+            button_export.Name = "button_export";
+            button_export.Size = new Size(91, 26);
+            button_export.TabIndex = 6;
+            button_export.Text = "Export";
+            button_export.UseVisualStyleBackColor = true;
+            button_export.Click += button_export_Click;
+            // 
+            // textBox_Name
+            // 
+            textBox_Name.Location = new Point(31, 261);
+            textBox_Name.Name = "textBox_Name";
+            textBox_Name.Size = new Size(156, 23);
+            textBox_Name.TabIndex = 7;
+            // 
+            // comboBox_file
+            // 
+            comboBox_file.FormattingEnabled = true;
+            comboBox_file.Items.AddRange(new object[] { "Text", "CSV" });
+            comboBox_file.Location = new Point(193, 261);
+            comboBox_file.Name = "comboBox_file";
+            comboBox_file.Size = new Size(121, 23);
+            comboBox_file.TabIndex = 8;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(comboBox_file);
+            Controls.Add(textBox_Name);
+            Controls.Add(button_export);
+            Controls.Add(comboBox_layers);
             Controls.Add(button_crawl);
             Controls.Add(button_wl);
             Controls.Add(listBox_url);
@@ -114,5 +157,9 @@ namespace GuiDiscovery
         private OpenFileDialog openFileDialog;
         private Button button_wl;
         private Button button_crawl;
+        private ComboBox comboBox_layers;
+        private Button button_export;
+        private TextBox textBox_Name;
+        private ComboBox comboBox_file;
     }
 }

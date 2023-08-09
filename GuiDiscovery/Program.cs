@@ -1,11 +1,11 @@
-// Est 3 hours
-// Start 7:11 PM
-// End   8:28 PM
-// Added a web crawler button that will search the html of a link and put it in a list box. 
-// It will do the same process for each link that it finds. 
-// The list box also now has clickable links so that you can open a page the program finds. 
-// Was able to complete this part faster because I fond a libary for web crawling that speed up development. 
-// Opening a link has a new method in .net 7.0 so I had to learn that. 
+// Est 2.5 hours
+// Start 6:30 PM
+// End 10:35 PM
+// Remade the web crawler so you can see how many links deep you can go into
+// Added a function for finding links in the html so it can be repeated easily 
+// Added a exprot function to put the listbox resuts in a text file 
+// Added a main file class that can also check if a path is aviable 
+// Added a txt and csv class that come from the file class 
 
 namespace GuiDiscovery
 {
