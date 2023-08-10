@@ -1,11 +1,9 @@
 // Est 2.5 hours
 // Start 6:30 PM
-// End 
-// Remade the web crawler so you can see how many links deep you can go into
-// Added a function for finding links in the html so it can be repeated easily 
-// Added a exprot function to put the listbox resuts in a text file 
-// Added a main file class that can also check if a path is aviable 
-// Added a txt and csv class that come from the file class 
+// End 8:03 PM
+// Added a lodaing bar 
+// Added more lables to make it more user friendly 
+// Also added multi threading to allow for both the loading bar and the web crawler to run at the same time 
 
 namespace GuiDiscovery
 {

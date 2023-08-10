@@ -41,6 +41,11 @@ namespace GuiDiscovery
             textBox_Name = new TextBox();
             comboBox_file = new ComboBox();
             progressBar1 = new ProgressBar();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             SuspendLayout();
             // 
             // button_dir
@@ -77,7 +82,7 @@ namespace GuiDiscovery
             // 
             // button_wl
             // 
-            button_wl.Location = new Point(184, 176);
+            button_wl.Location = new Point(285, 176);
             button_wl.Name = "button_wl";
             button_wl.Size = new Size(75, 23);
             button_wl.TabIndex = 3;
@@ -87,7 +92,7 @@ namespace GuiDiscovery
             // 
             // button_crawl
             // 
-            button_crawl.Location = new Point(103, 176);
+            button_crawl.Location = new Point(164, 176);
             button_crawl.Name = "button_crawl";
             button_crawl.Size = new Size(75, 23);
             button_crawl.TabIndex = 4;
@@ -138,11 +143,61 @@ namespace GuiDiscovery
             progressBar1.TabIndex = 9;
             progressBar1.Visible = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(126, 95);
+            label1.Name = "label1";
+            label1.Size = new Size(28, 15);
+            label1.TabIndex = 10;
+            label1.Text = "URL";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(320, 95);
+            label2.Name = "label2";
+            label2.Size = new Size(40, 15);
+            label2.TabIndex = 11;
+            label2.Text = "Layers";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(184, 216);
+            label3.Name = "label3";
+            label3.Size = new Size(41, 15);
+            label3.TabIndex = 12;
+            label3.Text = "Export";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(91, 243);
+            label4.Name = "label4";
+            label4.Size = new Size(60, 15);
+            label4.TabIndex = 13;
+            label4.Text = "File Name";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(231, 243);
+            label5.Name = "label5";
+            label5.Size = new Size(52, 15);
+            label5.TabIndex = 14;
+            label5.Text = "File Type";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(progressBar1);
             Controls.Add(comboBox_file);
             Controls.Add(textBox_Name);
@@ -172,5 +227,10 @@ namespace GuiDiscovery
         private TextBox textBox_Name;
         private ComboBox comboBox_file;
         private ProgressBar progressBar1;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }
