@@ -40,6 +40,7 @@ namespace GuiDiscovery
             button_export = new Button();
             textBox_Name = new TextBox();
             comboBox_file = new ComboBox();
+            progressBar1 = new ProgressBar();
             SuspendLayout();
             // 
             // button_dir
@@ -129,11 +130,20 @@ namespace GuiDiscovery
             comboBox_file.Size = new Size(121, 23);
             comboBox_file.TabIndex = 8;
             // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(31, 363);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(364, 23);
+            progressBar1.TabIndex = 9;
+            progressBar1.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(progressBar1);
             Controls.Add(comboBox_file);
             Controls.Add(textBox_Name);
             Controls.Add(button_export);
@@ -161,5 +171,6 @@ namespace GuiDiscovery
         private Button button_export;
         private TextBox textBox_Name;
         private ComboBox comboBox_file;
+        private ProgressBar progressBar1;
     }
 }

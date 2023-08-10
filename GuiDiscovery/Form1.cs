@@ -6,13 +6,19 @@ using System.Net.Http;
 using System.Security.Policy;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Threading;
 using static System.Net.Mime.MediaTypeNames;
+using System.ComponentModel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GuiDiscovery
 {
     public partial class Form1 : Form
     {
         string fileName = @"TextFile.txt";
+        int urls_numbers = 0;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -70,7 +76,7 @@ namespace GuiDiscovery
 
         }
 
-        private void button_crawl_Click(object sender, EventArgs e)
+        private async void button_crawl_Click(object sender, EventArgs e)
         {
             // Uses a crawler libary from github.com/Misterhex/WebCrawler/tree/master
             // Takes the input from input box and searchs the html for links and does the same for each link it finds
@@ -82,14 +88,30 @@ namespace GuiDiscovery
 
             List<string> url_crawl = new List<string>();
 
-            url_crawl = look_for_links(textBox_url.Text); //stores the found links 
 
+
+
+
+            var progress = new Progress<int>(v =>
+            {
+
+                progressBar1.Value = v;
+            });
+            progressBar1.Maximum = 100;
+            progressBar1.Step = 1;
+
+
+            url_crawl = await Task.Run(() => look_for_links(textBox_url.Text, progress)); //stores the found links 
+
+            urls_numbers = 0;
+            progressBar1.Maximum = url_crawl.Count + 1;
+            progressBar1.Show();
             for (int i = 0; i < Int32.Parse(comboBox_layers.Text); i++)
             {
                 foreach (string u in url_crawl)
                 {
 
-                    url_crawl = url_crawl.Concat(look_for_links(u)).Distinct().ToList();
+                    url_crawl = await Task.Run(() => url_crawl.Concat(look_for_links(u, progress)).Distinct().ToList());
                 }
             }
 
@@ -102,6 +124,10 @@ namespace GuiDiscovery
                 }
             }
             catch { }
+
+
+
+            await Task.Run(() => look_for_links(textBox_url.Text, progress));
 
             url_crawl.Clear();
         }
@@ -117,13 +143,13 @@ namespace GuiDiscovery
             }
         }
 
-        static List<string> look_for_links(string url)
+        List<string> look_for_links(string url, IProgress<int> progress)
         {
             List<string> url_found = new List<string>();
 
             WebClient client = new WebClient();
 
-            
+
             try
             {
                 // Download html of user input
@@ -134,13 +160,18 @@ namespace GuiDiscovery
                 Regex regx = new Regex(@"\b(https?|ftp|file|http)://\S+", RegexOptions.IgnoreCase);
                 MatchCollection mactches = regx.Matches(url_link);
 
+
+
                 foreach (Match match in mactches)
                 {
-
+                    ;
                     url_found.Add(match.Value.ToString());
                 }
             }
             catch { }
+            if (progress != null)
+                progress.Report((urls_numbers + 1));
+            urls_numbers++;
             return url_found;
 
         }
@@ -152,7 +183,7 @@ namespace GuiDiscovery
             {
                 f.fileName = textBox_Name.Text.ToString();
             }
-            
+
             if (f.filepath_aviable() == true)
             {
                 //make listbox into normal list
@@ -162,11 +193,11 @@ namespace GuiDiscovery
                 {
                     case "Text":
                         Text t = new Text();
-                        t.save_text(f.fileName,list_listbox);
+                        t.save_text(f.fileName, list_listbox);
                         break;
                     case "CSV":
                         CSV c = new CSV();
-                        c.save_csv(f.fileName,list_listbox);
+                        c.save_csv(f.fileName, list_listbox);
                         break;
                 }
 
