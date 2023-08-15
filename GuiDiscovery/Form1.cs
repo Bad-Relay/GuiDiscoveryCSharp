@@ -10,6 +10,8 @@ using System.Threading;
 using static System.Net.Mime.MediaTypeNames;
 using System.ComponentModel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Collections.Generic;
+using System.IO;
 
 namespace GuiDiscovery
 {
@@ -25,44 +27,32 @@ namespace GuiDiscovery
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             {
-                // Reads each to the words in the word list
-                IEnumerable<string> lines = File.ReadLines(fileName);
-
-                // Run for each word in word list
-                foreach (var lineRead in lines)
+                var progress_dict = new Progress<int>(v =>
                 {
+                    progressBar1.Value = v;
+                });
 
-                    // adds user input with a slash and the current word in the wordlist
-                    string request = sanitize_url(textBox_url.Text) + "/" + lineRead;
+                try
+                {
+                    // Reads each to the words in the word list
+                    IEnumerable<string> read_wordlist = File.ReadLines(fileName);
 
-                    try
-                    {
-                        // Make web request and get a response 
-                        HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create(request);
-
-                        HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
-
-                        // if the request is sucessful add to the list box
-                        if (myHttpWebResponse.StatusCode == HttpStatusCode.OK)
-
-                            listBox_url.Items.Add(request);
-
-                        myHttpWebResponse.Close();
-                    }
-                    catch (WebException i)
-                    {
-                        listBox_url.Items.Add("Request failed" + " " + request + " " + i.Status);
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Invaild Input");
-                    }
-
+                    //runs a fuction to try the wordlist and put the resutls into the web box
+                     fuzzy_dict(read_wordlist);
                 }
-
+                catch (Exception) {
+                    // if error have user pick another word list 
+                    MessageBox.Show("Wordlist not found or is readable please choose another one");
+                    if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        //set wordlist filename var to what the user has set to the wordlist
+                        fileName = openFileDialog.FileName;
+                    }
+                   
+                }
 
             }
         }
@@ -94,10 +84,11 @@ namespace GuiDiscovery
 
             url_crawl = await Task.Run(() => look_for_links(sanitize_url(textBox_url.Text), progress)); //stores the found links 
 
-           
+
             progressBar1.Show();
 
-            if (comboBox_layers.Text == "") { //sets the layers to 0 if nothing is set
+            if (comboBox_layers.Text == "")
+            { //sets the layers to 0 if nothing is set
                 comboBox_layers.SelectedIndex = 0;
             }
 
@@ -108,10 +99,10 @@ namespace GuiDiscovery
                 urls_numbers = 0;
 
                 foreach (string u in url_crawl)
-                { 
-                    url_crawl = await Task.Run(() => url_crawl.Concat(look_for_links(u, progress)).Distinct().ToList()) ;
+                {
+                    url_crawl = await Task.Run(() => url_crawl.Concat(look_for_links(u, progress)).Distinct().ToList());
                 }
-                
+
             }
 
             url_crawl = url_crawl.Concat(url_crawl).Distinct().ToList();
@@ -168,7 +159,7 @@ namespace GuiDiscovery
 
                     if (!matched_url.StartsWith("https") & !matched_url.StartsWith("http") & !matched_url.StartsWith("ftp"))
                     { // check to see if link is internal by seeing if a protocol is called 
-                                              
+
                         matched_url = url + matched_url;
                     }
 
@@ -184,20 +175,22 @@ namespace GuiDiscovery
 
         }
 
-        private string sanitize_url(string s) {
+        private string sanitize_url(string s)
+        {
 
             if (!s.Contains("://"))
             {
                 s = "https://" + s; //adds https as a protocol if none are found 
             }
 
-            if (s.EndsWith("/")) {
+            if (s.EndsWith("/"))
+            {
                 s = s.Remove(s.Length - 1);  //removes a / at the end
             }
 
             return s;
-        
-        } 
+
+        }
 
         private void button_export_Click(object sender, EventArgs e)
         {
@@ -226,5 +219,56 @@ namespace GuiDiscovery
 
             }
         }
+
+        private void fuzzy_dict(IEnumerable<string> lines) { //function that brute forces web dictionary 
+
+            /*
+            string error_path = @"error.txt";
+
+            File.Create(error_path);
+
+            
+
+            using (var sw = new StreamWriter(error_path, true))
+            {
+                sw.WriteLine("The very first line!");
+                     }
+               
+
+                 */
+            // Run for each word in word list
+            foreach (var lineRead in lines)
+                {
+
+                    // adds user input with a slash and the current word in the wordlist
+                    string request = sanitize_url(textBox_url.Text) + "/" + lineRead;
+
+                    try
+                    {
+                        // Make web request and get a response 
+                        HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create(request);
+
+                        HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
+
+                        // if the request is sucessful add to the list box
+                        if (myHttpWebResponse.StatusCode == HttpStatusCode.OK)
+
+                            listBox_url.Items.Add(request);
+
+                        myHttpWebResponse.Close();
+                    }
+                    catch (WebException i)
+                    {
+                        listBox_url.Items.Add("Request failed" + " " + request + " " + i.Status);
+                    }
+                    catch (Exception er)
+                    {
+                        MessageBox.Show(er.Message);
+                    }
+
+                }
+
+        }
+
     }
 }
