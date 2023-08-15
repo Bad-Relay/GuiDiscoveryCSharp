@@ -837,19 +837,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bunce\\.nuget\\packages\\": {}
+    "C:\\Users\\comstar\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bunce\\source\\repos\\GuiDiscovery\\GuiDiscovery\\GuiDiscovery.csproj",
+      "projectUniqueName": "C:\\Users\\comstar\\Source\\Repos\\GuiDiscoveryCSharp\\GuiDiscovery\\GuiDiscovery.csproj",
       "projectName": "GuiDiscovery",
-      "projectPath": "C:\\Users\\bunce\\source\\repos\\GuiDiscovery\\GuiDiscovery\\GuiDiscovery.csproj",
-      "packagesPath": "C:\\Users\\bunce\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bunce\\source\\repos\\GuiDiscovery\\GuiDiscovery\\obj\\",
+      "projectPath": "C:\\Users\\comstar\\Source\\Repos\\GuiDiscoveryCSharp\\GuiDiscovery\\GuiDiscovery.csproj",
+      "packagesPath": "C:\\Users\\comstar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\comstar\\Source\\Repos\\GuiDiscoveryCSharp\\GuiDiscovery\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\bunce\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\comstar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -899,7 +904,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

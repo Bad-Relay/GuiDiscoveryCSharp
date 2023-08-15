@@ -19,6 +19,7 @@ namespace GuiDiscovery
         int urls_numbers = 0;
 
 
+
         public Form1()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace GuiDiscovery
                 {
 
                     // adds user input with a slash and the current word in the wordlist
-                    string request = textBox_url.Text + "/" + lineRead;
+                    string request = sanitize_url(textBox_url.Text) + "/" + lineRead;
 
                     try
                     {
@@ -78,41 +79,39 @@ namespace GuiDiscovery
 
         private async void button_crawl_Click(object sender, EventArgs e)
         {
-            // Uses a crawler libary from github.com/Misterhex/WebCrawler/tree/master
-            // Takes the input from input box and searchs the html for links and does the same for each link it finds
-            //Crawler crawler = new Crawler();
-
-            // IObservable<Uri> observable = crawler.Crawl(new Uri(textBox_url.Text));
-            // Adds result to listbox 
-            //  observable.Subscribe(onNext: x => listBox_url.Items.Add(x));
 
             List<string> url_crawl = new List<string>();
 
-
-
-
-
             var progress = new Progress<int>(v =>
             {
-
                 progressBar1.Value = v;
             });
+
+            urls_numbers = 0;
             progressBar1.Maximum = 100;
             progressBar1.Step = 1;
 
 
-            url_crawl = await Task.Run(() => look_for_links(textBox_url.Text, progress)); //stores the found links 
+            url_crawl = await Task.Run(() => look_for_links(sanitize_url(textBox_url.Text), progress)); //stores the found links 
 
-            urls_numbers = 0;
-            progressBar1.Maximum = url_crawl.Count + 1;
+           
             progressBar1.Show();
+
+            if (comboBox_layers.Text == "") { //sets the layers to 0 if nothing is set
+                comboBox_layers.SelectedIndex = 0;
+            }
+
+
             for (int i = 0; i < Int32.Parse(comboBox_layers.Text); i++)
             {
-                foreach (string u in url_crawl)
-                {
+                progressBar1.Maximum = await Task.Run(() => url_crawl.Count - 1);
+                urls_numbers = 0;
 
-                    url_crawl = await Task.Run(() => url_crawl.Concat(look_for_links(u, progress)).Distinct().ToList());
+                foreach (string u in url_crawl)
+                { 
+                    url_crawl = await Task.Run(() => url_crawl.Concat(look_for_links(u, progress)).Distinct().ToList()) ;
                 }
+                
             }
 
             url_crawl = url_crawl.Concat(url_crawl).Distinct().ToList();
@@ -125,9 +124,9 @@ namespace GuiDiscovery
             }
             catch { }
 
+            MessageBox.Show($"Scan done {url_crawl.Count} found!");
 
-
-            await Task.Run(() => look_for_links(textBox_url.Text, progress));
+            progressBar1.Hide();
 
             url_crawl.Clear();
         }
@@ -157,24 +156,48 @@ namespace GuiDiscovery
 
                 //Uses regx to look for the website links in the html
                 // looks for a url that starts with https, ftp, file or http with :// affter 
-                Regex regx = new Regex(@"\b(https?|ftp|file|http)://\S+", RegexOptions.IgnoreCase);
+                Regex regx = new Regex(@"<a\s+[^>]*href=(['""])(?<url>.*?)\1[^>]*>", RegexOptions.IgnoreCase);
                 MatchCollection mactches = regx.Matches(url_link);
 
 
 
                 foreach (Match match in mactches)
                 {
-                    ;
-                    url_found.Add(match.Value.ToString());
+
+                    string matched_url = match.Groups["url"].Value.ToString();
+
+                    if (!matched_url.StartsWith("https") & !matched_url.StartsWith("http") & !matched_url.StartsWith("ftp"))
+                    { // check to see if link is internal by seeing if a protocol is called 
+                                              
+                        matched_url = url + matched_url;
+                    }
+
+                    url_found.Add(matched_url); // add string to listbox 
+
                 }
             }
             catch { }
             if (progress != null)
-                progress.Report((urls_numbers + 1));
+                progress.Report((urls_numbers));
             urls_numbers++;
             return url_found;
 
         }
+
+        private string sanitize_url(string s) {
+
+            if (!s.Contains("://"))
+            {
+                s = "https://" + s; //adds https as a protocol if none are found 
+            }
+
+            if (s.EndsWith("/")) {
+                s = s.Remove(s.Length - 1);  //removes a / at the end
+            }
+
+            return s;
+        
+        } 
 
         private void button_export_Click(object sender, EventArgs e)
         {
